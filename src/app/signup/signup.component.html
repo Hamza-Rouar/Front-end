@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+       <div class="col-md-6">
+            <div class="card">
+                <div class="text centre">
+                    <h1>SignUp</h1>
+                    <h5>Register</h5>
+                </div>
+
+            <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Full Name</label>
+                    <input formControlName="fullName" type="text" class="form-control" id="exampleInputPassword1" placeholder="Full Name">
+                    <span class="text-danger" *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.hasError('required','fullName')">
+                      Full Name is required</span>
+                  </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Mobile</label>
+                    <input formControlName="mobile" type="text" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                  <span class="text-danger" *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')">
+                    Email is required</span>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <span class="text-danger" *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
+                    Password is required</span>
+                </div>
+                <button [disabled]="signUpForm.invalid" class="btn btn-primary">register</button>
+              </form>
+              <a routerLink="/login">Already enregistred ? click here to login !</a>
+            </div>
+        </div>
+    </div>
+</div>
+
